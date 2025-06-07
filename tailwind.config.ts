@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -52,22 +53,25 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				sidebar: { // Sidebar colors now use main theme variables
+					DEFAULT: 'hsl(var(--background))',
+					foreground: 'hsl(var(--foreground))',
+					primary: 'hsl(var(--primary))',
+					'primary-foreground': 'hsl(var(--primary-foreground))',
+					accent: 'hsl(var(--accent))',
+					'accent-foreground': 'hsl(var(--accent-foreground))',
+					border: 'hsl(var(--border))',
+					ring: 'hsl(var(--ring))'
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: 'var(--radius)', // Will be 6px (0.375rem)
+				md: 'calc(var(--radius) - 2px)', // Will be 4px
+				sm: 'calc(var(--radius) - 4px)'  // Will be 2px
 			},
+			fontFamily: {
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
